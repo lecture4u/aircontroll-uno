@@ -43,7 +43,7 @@ void setup() {
 
 // actuator control
 void pushButton() {
-  for(angle = 180; angle > 0; angle--) {
+  for(angle = 25; angle > 0; angle--) {
     servo.write(angle);
     delay(15);
   }
@@ -51,7 +51,7 @@ void pushButton() {
 
 void retreat() {
   // sacn from 0 to 180 degrees
-  for(angle = 0; angle < 180; angle++) {
+  for(angle = 0; angle < 25; angle++) {
     servo.write(angle);
     delay(15);
   }
@@ -114,8 +114,9 @@ void loop() {
 */
 
   // the more light exists, the lower the value is
-  // the value 120 is heuristically decided by myself. some experiment must be needed.
-  if(rawAverage > 120) {
+  // the value 500 is heuristically decided by experiment.
+  // cds sensor was under black-room condition
+  if(rawAverage > 500) {
     //airconditioner is not working
     controlActuator();
   }
